@@ -19,35 +19,32 @@ for (var i = 0; i < 10; i++) {
 
 //Create obj - 1
 for (var i = 0; i < 10; i++) {
-  var key = "key-" + i;
-  objFirst[key] = key; 
+  var key = i;
+  objFirst[key] = "value" + i; 
 }
 
 //Create obj - 2
 for (var i = 0; i < 10; i++) {
-  debugger;
-  var key  = Math.random();
-  key = key.toFixed(2);
-  key = "key-"  + key;
-  objSecond[key] = key; 
+  key = "key-"  + i;
+  objSecond[key] = "value-" + i; 
 }
 
-//1
-
+//1 test
 function testArr1() {
-  var counter = 0;
+
+  var newArr = [];
 
   for (var i = 0; i < arr.length; i++) {
-    counter += 1;
+    newArr.push(arr[i]);  
   }
-  console.log(counter);
 };
 
+
 function testArr2() {
-  var counter = 0;
+  var newArr = [];
 
   for (var key in arr) {
-    counter += 1;
+    newArr.push(key);    
   }
 };
 
@@ -60,21 +57,23 @@ if (bench(testArr1) > bench(testArr2)) {
   alert( 'Время выполнения функции "testArr2" дольше' );
 }
 
-//2
+//2  test
 
 function testObj3() {
-  var counter = 0;
+
+  var newObj = {};
 
   for (var key in objFirst) {
-    counter++;
+    newObj[key] = objFirst[key];
   }
 }
 
 function testObj4() {
-  var counter = 0;
+ 
+  var newObj = {};
 
   for (var i = 0; i < Object.keys(objFirst).length; i++) {
-    counter++;
+    newObj[i] = objFirst[i];
   }
 }
 
@@ -90,18 +89,23 @@ if (bench(testObj3) > bench(testObj4)) {
 //3
 
 function testObj5() {
-  var counter = 0;
 
+  var newObj = {};
+ 
   for (var key in objSecond) {
-    counter++;
+    newObj[key] = objSecond[key];
   }
 }
 
 function testObj6() {
-  var counter = 0;
+  
+  var newObj = {};
 
   for (var i = 0; i < Object.keys(objSecond).length; i++) {
-    counter++;
+    
+    for (var key in objSecond) {
+      newObj[key] = objSecond[key];
+    }
   }
 }
 

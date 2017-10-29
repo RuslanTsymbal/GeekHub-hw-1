@@ -9,13 +9,14 @@ var myObj = {
   key5: "val-5"
 };
 
-var newObj = {};
 
 function clone (obj) {
-  for (var key in obj) {
-    newObj[key] = obj[key];
-  }
-  console.log(newObj);
+   var locObj = {};
+
+   for (var key in obj) {
+      locObj[key] = obj[key];
+   }
+   return locObj;
 }
 
-clone(myObj);
+var newObj = clone(myObj);

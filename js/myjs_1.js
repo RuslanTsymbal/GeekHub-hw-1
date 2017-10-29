@@ -1,4 +1,4 @@
-//Task 1
+// //Task 1
 
 function recurs(arr, num) {
   arr.push(num);
@@ -11,5 +11,3 @@ function recurs(arr, num) {
 var myArr = [];
 
 recurs(myArr, 5);
-
-console.log(myArr);
